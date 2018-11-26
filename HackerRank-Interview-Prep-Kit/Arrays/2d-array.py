@@ -15,8 +15,6 @@
     efg
 '''
 
-from itertools import chain
-
 def max_hour_glass(arr2d):
     # use and change this later
     max = 0
@@ -24,9 +22,6 @@ def max_hour_glass(arr2d):
     # this var is temporary, and will update in our for loop. 
     # Used to be added into our list!
     hour_glass_val = 0
-
-    # this var is temp and 
-    hour_glass_val
     for row in range(len(arr2d)-2):
         # print("Row:", row)
         for col in range(len(arr2d)-2):
