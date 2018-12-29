@@ -16,20 +16,38 @@
 '''
 
 def max_hour_glass(arr2d):
+    '''
+        Args:       2d array
+        Returns:    largest sum in the list.
+
+        How it works?
+            Create a local max variable initially set to 0.
+            Create an empty array, hour_glass_sums.
+            Create variable, hour_glass_val to get value of current hour glass & store into list.
+
+            Start a for loop through each row of the 2d array.
+                Loop through each column in the row.
+                Set hour_glass_val = all the hourglass item sum'd up since we know the pattern they exist in.
+                Append that value to the list.
+            
+            Lastly (maybe there's a better way to do this without creating new memory!)
+            set max = to the first hour glass sum in the list.
+                Loop through each number in the list.
+                    Compare it to see if it's larger than the max.
+                    If so,
+                        Set the max equal to that number.
+
+            Finally, we return the max value.
+            
+    '''
     # use and change this later
     max = 0
     hour_glass_sums = []
-    # this var is temporary, and will update in our for loop. 
-    # Used to be added into our list!
     hour_glass_val = 0
     for row in range(len(arr2d)-2):
-        # print("Row:", row)
         for col in range(len(arr2d)-2):
-            # print("Column:", col)
             hour_glass_val = arr2d[row][col] + arr2d[row][col+1] + arr2d[row][col+2] + arr2d[row+1][col+1] + arr2d[row+2][col] + arr2d[row+2][col+1] + arr2d[row+2][col+2]
-            # print("hour_glass_val:",hour_glass_val)
             hour_glass_sums.append(hour_glass_val)
-            # print("New List:", hour_glass_sums)
     
     # BRUTE FORCE: FIND LARGEST INT IN AN ARRAY
     max = hour_glass_sums[0]
@@ -40,7 +58,7 @@ def max_hour_glass(arr2d):
     return max
 
 use_case_1 = [
-    [100, 1, 1, 0, 0, 0],
+    [10, 1, 1, 0, 0, 0],
     [0, 1, 0, 0, 10, 0],
     [1 ,1, 1, 0, 0, 0],
     [0, 0, 2, 4, 4, 0],
@@ -49,7 +67,7 @@ use_case_1 = [
     ]
 
 # Donnie's black ass told me to Google enum in python, and range.
-print(max_hour_glass(use_case_1))
+print("Max: ", max_hour_glass(use_case_1))
 
 
 # Potential Solutionsaaa
