@@ -20,5 +20,13 @@ nums = [2,7,11,15]
 target = 9
 print(twoSum(nums, target))
 
-        
-# Given nums = [2, 7, 11, 15], target = 9,
+
+# Complexity Analysis
+
+# Time complexity : O(n^2)O(n 
+# 2
+#  ). For each element, we try to find its complement by looping through the rest of array which takes O(n)O(n) time. Therefore, the time complexity is O(n^2)O(n 
+# 2
+#  ).
+
+# Space complexity : O(1)O(1). 
