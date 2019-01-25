@@ -1,10 +1,3 @@
-# 1 1 1 0 0 0
-# 0 1 0 0 0 0
-# 1 1 1 0 0 0
-# 0 0 0 0 0 0
-# 0 0 0 0 0 0
-# 0 0 0 0 0 0
-
 '''
     Problem: https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
     Using 2d array, create a list of all the 'hourglass values' and return the largest sum in that list.
@@ -45,7 +38,9 @@ def max_hour_glass(arr2d):
     hour_glass_sums = []
     hour_glass_val = 0
     for row in range(len(arr2d)-2):
+        print("row:", row)
         for col in range(len(arr2d)-2):
+            print("col:", col)
             hour_glass_val = arr2d[row][col] + arr2d[row][col+1] + arr2d[row][col+2] + arr2d[row+1][col+1] + arr2d[row+2][col] + arr2d[row+2][col+1] + arr2d[row+2][col+2]
             hour_glass_sums.append(hour_glass_val)
     
@@ -69,6 +64,12 @@ use_case_1 = [
 # Donnie's black ass told me to Google enum in python, and range.
 print("Max: ", max_hour_glass(use_case_1))
 
+# 1 1 1 0 0 0
+# 0 1 0 0 0 0
+# 1 1 1 0 0 0
+# 0 0 0 0 0 0
+# 0 0 0 0 0 0
+# 0 0 0 0 0 0
 
 # Potential Solutionsaaa
 '''

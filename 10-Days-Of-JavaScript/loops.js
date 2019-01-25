@@ -2,6 +2,8 @@ function vowelsAndConsonants(s) {
     let consonants = "";
 
     // For each letter in string s:
+    // or instead of splitting the string, i could use JS String Method charAt()
+    // to return a character at the specified index in the string.
     for (let letter of s.split('')) {
         if (letter == 'a' ||
             letter == 'e' ||
