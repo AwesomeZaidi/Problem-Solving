@@ -45,6 +45,7 @@ class TwoSum():
         
         raise ValueError("No two sum solution")
             
+
 # Calling Class
 nums = [2,7,11,15]
 target = 4
