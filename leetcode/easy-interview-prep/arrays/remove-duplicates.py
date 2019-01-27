@@ -54,6 +54,7 @@ def removeDuplicates(nums):
     # return that totalCount counter
 
 
-print(removeDuplicates([2,3,4,4,5]))
+# print(removeDuplicates([2,3,4,4,5]))
+print(removeDuplicates([1,0,1,2,3,4,5,5]))
 
         
