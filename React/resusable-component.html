@@ -24,11 +24,13 @@
     // const content = "Hello World";
     // props is an obj with a msg property on it
     const rootElement = document.getElementById('root');
-    const Message = props => <div>{props.msg}</div>;
+    const Message = props => <div>{props.children}</div>;
     const element = (
         <div className="container">
-            <Message msg="Hello World" />
-            <Message msg="Bye World" />
+            <Message>
+                Hello World
+            </Message>
+            <Message>Bye World</Message>
         </div>
     )
     // const element = <div {...props} className="my-class" />
