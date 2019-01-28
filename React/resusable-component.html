@@ -12,9 +12,13 @@
     // rootElement.appendChild(element)
     const element = React.createElement(
         'div',
-        {className: 'container'},
-        'Hello World',
-        'Goodbye World'
+        {
+            className: 'container', 
+            children: [
+                'Hello World',
+                'Goodbye World'
+            ] 
+        },
     );
     console.log(element);
     
