@@ -28,7 +28,7 @@
         className: 'container',
         children: 'Hello World',
     }
-    const element = <div className="my-class" {...props} />
+    const element = <div {...props} className="my-class" />
         // this is similar to object spread in js... we're spreading the props classname and children across this div.
 
     // const element = <div className={myClassName + 'hi-there'}>{(() => content)()}</div>
