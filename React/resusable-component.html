@@ -2,24 +2,28 @@
 <div id="root"></div>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-<!-- <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<script type="text/javascript">
+<script type="text/babel">
     const rootElement = document.getElementById('root');
     // const element = document.createElement('div');
     // element.textContent = 'Hello World';
     // element.className = 'container';
     // rootElement.appendChild(element)
-    const element = React.createElement(
-        'div',
-        {
-            className: 'container', 
-            children: [
-                'Hello World',
-                'Goodbye World'
-            ] 
-        },
-    );
+    // React creatElement API is as simple as: the element you wanna create, and an obj of all the props you want to apply.
+    // you can also provide the children as any number of arguments after the props argument as well.
+    // const element = React.createElement(
+    //     'div',
+    //     {
+    //         className: 'container', 
+    //         children: [
+    //             'Hello World',
+    //             'Goodbye World'
+    //         ] 
+    //     },
+    // );
+    const element = <div className="container">Hello World</div>
+    // Hello World here represents the JSX elements childen and you can provide any number of children. 
     console.log(element);
     
     ReactDOM.render(element, rootElement)
