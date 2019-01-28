@@ -10,16 +10,9 @@
             <div>
                 {
                 message
-                ? React.createElement(
-                    'div',
-                    null,
-                    message
-                )
-                : React.createElement(
-                    'div',
-                    null,
-                    'No Message'
-                )}
+                ? <div>{message}</div>
+                : <div>No Message</div>
+                }
             </div>
         );
     };
