@@ -22,12 +22,19 @@
     //         ] 
     //     },
     // );
-    const content = "Hello World"
-    const myClassName = "container"
-    const element = <div className={myClassName + 'hi-there'}>{(() => content)()}</div>
+    const content = "Hello World";
+    const myClassName = "container";
+    const props = {
+        className: 'container',
+        children: 'Hello World',
+    }
+    const element = <div {...props} />
+        // this is similar to object spread in js... we're spreading the props classname and children across this div.
+
+    // const element = <div className={myClassName + 'hi-there'}>{(() => content)()}</div>
     // once you put in these curly braces you're in js land and you can do anything you want inside the jsx.
     // Hello World here represents the JSX elements childen and you can provide any number of children. 
-    console.log(element);
+    // console.log(element);
     
     ReactDOM.render(element, rootElement)
 
