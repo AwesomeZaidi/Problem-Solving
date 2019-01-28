@@ -26,15 +26,15 @@
     // const content = "Hello World";
     // props is an obj with a msg property on it
     const rootElement = document.getElementById('root');
-    const Message = props => <div>{props.children}</div>;
-    const element = (
-        <div className="container">
-            <Message>
-                Hello World
-            </Message>
-            <Message>Bye World</Message>
-        </div>
-    )
+    // const Message = props => <div>{props.children}</div>;
+    // const element = (
+    //     <div className="container">
+    //         <Message>
+    //             Hello World
+    //         </Message>
+    //         <Message>Bye World</Message>
+    //     </div>
+    // )
     // const element = <div {...props} className="my-class" />
         // this is similar to object spread in js... we're spreading the props classname and children across this div.
 
@@ -43,32 +43,45 @@
     // Hello World here represents the JSX elements childen and you can provide any number of children. 
     // console.log(element);
     
-    ReactDOM.render(element, rootElement)
+    // ReactDOM.render(element, rootElement)
 
-    function SayHello(props) {
-        return (
-            <div>
-                Hello {props.firstName} {props.lastName}!
-            </div>
-        );
-    };
+    class SayHelloAsClass extends React.Component {
+        // the prpduction version of React doesn't use propTypes
+        static propTypes = {
+            firstName: PropTypes.string.isRequired,
+            lastName: PropTypes.string.isRequired,
+        };
 
-    const PropTypes = {
-        string(props, propName, componentName) {
-            if (typeof props[propName] !== 'string') {
-                return new Error(`Hey, you should pass a string for ${propName} in ${componentName} but you passed ${typeof props[propName]}!`)
-            }
+        render() {
+            const {firstName, lastName} = this.props;
+            return (
+                <div>
+                Hello {firstName} {lastName}!
+                </div>
+            )
         }
-    }
+    };
+    
+    ReactDOM.render(<SayHelloAsClass firstName={true} />, rootElement);
+
+    // const PropTypes = {
+    //     string(props, propName, componentName) {
+    //         if (typeof props[propName] !== 'string') {
+    //             return new Error(`Hey, you should pass a string for ${propName} in ${componentName} but you passed ${typeof props[propName]}!`)
+    //         }
+    //     }
+    // }
+    // We remove this and use the global PropTypes module.. but the issue here is that all the validators in this consider
+    // props to be optional, so if you don't provide the prop, the validator doesn't run.
+    // That's useful in some cases like where we provide a default value.
+
+    // you can do this but it's more common to make propTypes a static property of the class.
+    // SayHello.propTypes = {
+    //     firstName: PropTypes.string.isRequired,
+    //     lastName: PropTypes.string.isRequired,
+    // }
 
 
-    SayHello.propTypes = {
-        firstName: PropTypes.string,
-        lastName: PropTypes.string,
-    }
-
-
-    ReactDOM.render(<SayHello firstName={true} />, rootElement);
 
 </script>
     
