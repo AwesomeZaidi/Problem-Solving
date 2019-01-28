@@ -22,7 +22,10 @@
     //         ] 
     //     },
     // );
-    const element = <div className="container">Hello World</div>
+    const content = "Hello World"
+    const myClassName = "container"
+    const element = <div className={myClassName + 'hi-there'}>{(() => content)()}</div>
+    // once you put in these curly braces you're in js land and you can do anything you want inside the jsx.
     // Hello World here represents the JSX elements childen and you can provide any number of children. 
     console.log(element);
     
