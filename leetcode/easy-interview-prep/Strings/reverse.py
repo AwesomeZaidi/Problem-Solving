@@ -12,8 +12,10 @@ def reverse_arr_str(s):
         s[i], s[j] = s[j], s[i]
         i += 1
         j -= 1
-
     return s
+
+    # One liner solution:
+    # return "".join(list(s)[::-1])
 
 
 print(reverse_arr_str(["a", "b", "c", "d"]))
