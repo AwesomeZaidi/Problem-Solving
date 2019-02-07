@@ -24,7 +24,7 @@ class Acronym():
         self.word = word
         self.alphas = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
         self.acronym = ""
-
+    
     def isAlphanumeric(self, character):
         # check if character exists in the string of characters with out a builtin method
         if character in self.alphas:
@@ -39,11 +39,12 @@ class Acronym():
 
         for index, element in enumerate(self.word):
             if element == " " and self.isAlphanumeric(self.word[index+1]): # if we find a space & next char is alphanumeric
-                acronym += self.word[index+1] # add it to the acronym string
+                self.acronym += self.word[index+1] # add it to the acronym string
 
-        print("acronym:", acronym)
-        return acronym
-                
+        return self.acronym
+    
+    def __getstr__(self):
+        return self.getAcronyms()
 
 word = Acronym("Johnny wen to the store")
-print(word.getAcronyms)
+print(word.__getstr__())
