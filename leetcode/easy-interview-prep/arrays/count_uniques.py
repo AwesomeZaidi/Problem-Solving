@@ -13,7 +13,7 @@ def count_uniques(nums):
     newArr = []
     for index, element in enumerate(nums):
         if index == 0:
-            totalUniqueCount += 1 
+            totalUniqueCount += 1
             newArr.append(nums[index])
             continue
         if element in nums[index-1::-1]:
