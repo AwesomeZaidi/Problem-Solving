@@ -25,5 +25,6 @@ def squareUp(n):
 
     return arr
 
+# Look into doing this recursively.
 
 print(squareUp(4))
