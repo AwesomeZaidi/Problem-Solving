@@ -16,20 +16,20 @@ def square_up(n):
     # a = []
 
     # # Loop in 2 dimensions, as a matrix (row i, column j)
-    # for i in range(n):
-    #     for j in range(n):
-    #         # Upper left triangle
-    #         # if i+j < n-1:
-    #         #     a.append(0)
-    #         # # Lower right triangle
-    #         # else:
-    #         #     a.append(n-j)
+    for i in range(n):
+        for j in range(n):
+            # Upper left triangle
+            if i+j < n-1:
+                a.append(0)
+            # Lower right triangle
+            else:
+                a.append(n-j)
 
-    #         # Equivalent tertiary expression
-    #         # a.append(0 if i+j < n-1 else n-j)
-    # return a
+            # Equivalent tertiary expression
+            # a.append(0 if i+j < n-1 else n-j)
+    return a
 
-    # # Equivalent list comprehension
+    # Equivalent list comprehension
     return [0 if i+j < n-1 else n-j for i in range(n) for j in range(n)]
 
 
