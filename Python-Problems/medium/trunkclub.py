@@ -29,6 +29,7 @@ def caseSwap(sentence):
 		n = number of words in input sentence (length of word_list)
 		Time Complexity: 2n + 2 (n*log n) + 2n = O(n*log n) overall
 	'''
+
 	word_list = sentence.split() # O(n)
 
 	lowercases = []
@@ -39,7 +40,6 @@ def caseSwap(sentence):
 		else:
 			uppercases.append(word) # O(1)
 
-	# sort the lists of word appropriately.
 	lowercases = sorted(lowercases) # approximately n/2 log n/2 = O(n*log n)
 	uppercases = sorted(uppercases, reverse=True) # also O(n*log n)
 	sorted_sentence = ' '.join(lowercases) + ' ' # approximately n/2 = O(n)
