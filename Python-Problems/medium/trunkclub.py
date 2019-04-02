@@ -1,74 +1,51 @@
-# Question:
+# Instructions / Question:
+# 	Given a standard English sentence passed in as a string,
+#  	write a method that will return a sentence comprised of the same words,
+#  	but sorted by their first letter.
 
-#  Given a standard English sentence passed in as a string,
-#  write a method that will return a sentence comprised of the same words,
-#  but sorted by their first letter.
+#  	However, the method of sorting has a twist to it:
+#  	all words that begin with a lowercase letter should be
+#  	at the beginning of the sorted sentence,
+#  	and sorted in ascending order. All words that begin with
+#  	an uppercase letter should come after that, and should be sorted
+#  	in descending order. If a word appears twice in the sentence,
+#  	it should be returned twice in the sorted sentence.
 
-#  However, the method of sorting has a twist to it:
-#  all words that begin with a lowercase letter should be
-#  at the beginning of the sorted sentence,
-#  and sorted in ascending order. All words that begin with
-#  an uppercase letter should come after that, and should be sorted
-#  in descending order. If a word appears twice in the sentence,
-#  it should be returned twice in the sorted sentence.
+#  	Any punctuation must be discarded.
 
-#  Any punctuation must be discarded.
+#  	Sample Run:
 
-#  Sample Run:
+#    	Input: `A Person who never Made a Mistake never tried anything New.`
 
-#    Input: `A Person who never Made a Mistake never tried anything New.`
-
-#    Output `a anything never never tried who Person New Mistake Made A`
-
-# # assumptions 
-
-# # clarifications
-# 1. create a function 
-# 2. arguments 1 of str
-# 3. returns str -> sorted
-# 4. lowercase first ascending order...
-# 5. uppercasse last in decending order
-# 6. continue to add all words even if doubled
+#    	Output `a anything never never tried who Person New Mistake Made A`
 
 def caseSwap(sentence):
 	'''
 		Args: 		sentence: string sentence
-		Returns: 	sentence: string with lowercase words first
-					and in decending alphabetized order.
+		Returns: 	sorted_sentence: string with lowercase words first
+					and uppercased words in decending alphabetized order
+					and lowercase words in alphabetized order.
+
+		n = number of words in input sentence (length of word_list)
+		Time Complexity: 2n + 2 (n*log n) + 2n = O(n*log n) overall
 	'''
-	sentence = sentence.split() # Convert string to list to work with.
-	# OLD COOOODEAH
-		# sentence = sorted(sentence, reverse=True) # sort the list in reverse, lowercases come first.
-		
-		# loop through the list and if a word is lower case
-
-		# for index, word in enumerate(sentence):
-		# 	if word.islower()
-		# 	if word < nextWord:
-		# 		sentence.insert(index, sentence.pop(index+1))
-		# 	else:
-		# 		sentence.insert(index+1, sentence.pop(index))
-		# 	return sentence
-
-			# and word < currentWord:
-			# 	sentence.insert(index, sentence.pop(index))
+	word_list = sentence.split() # O(n)
 
 	lowercases = []
 	uppercases = []
-	for word in sentence:
-	# throw all the lowercase words into a list, sort it.
-		if word.islower():
-			lowercases.append(word)
-		# throw all the uppercase words into a list, sort that.
+	for word in word_list: # n iterations x O(1) = O(n)
+		if word[0].islower(): # O(1)
+			lowercases.append(word) # O(1)
 		else:
-			uppercases.append(word)
+			uppercases.append(word) # O(1)
 
-	# concatenate the list together and convert to a string to be returned.
-	lowercases = sorted(lowercases) # sort the list in reverse, lowercases come first.
-	uppercases = sorted(uppercases, reverse=True) # sort the list in reverse, lowercases come first.
-	sortedSentence = ' '.join(lowercases + uppercases)
-	return sortedSentence
+	# sort the lists of word appropriately.
+	lowercases = sorted(lowercases) # approximately n/2 log n/2 = O(n*log n)
+	uppercases = sorted(uppercases, reverse=True) # also O(n*log n)
+	sorted_sentence = ' '.join(lowercases) + ' ' # approximately n/2 = O(n)
+	sorted_sentence += ' '.join(uppercases) # approximately n/2 = O(n)
+	return sorted_sentence
 
-print(caseSwap('A Person who never Made a Mistake never tried anything New.'))
+print(caseSwap('A Person who never Made a Mistake never tried anything New'))
 
 # Expected output: `a anything never never tried who Person New Mistake Made A`
