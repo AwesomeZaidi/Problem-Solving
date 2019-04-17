@@ -41,7 +41,9 @@ def max_hour_glass(arr2d):
         print("row:", row)
         for col in range(len(arr2d)-2):
             print("col:", col)
-            hour_glass_val = arr2d[row][col] + arr2d[row][col+1] + arr2d[row][col+2] + arr2d[row+1][col+1] + arr2d[row+2][col] + arr2d[row+2][col+1] + arr2d[row+2][col+2]
+            hour_glass_val = arr2d[row][col] + arr2d[row][col+1] + arr2d[row][col+2]
+            + arr2d[row+1][col+1]
+            + arr2d[row+2][col] + arr2d[row+2][col+1] + arr2d[row+2][col+2]
             hour_glass_sums.append(hour_glass_val)
     
     # BRUTE FORCE: FIND LARGEST INT IN AN ARRAY

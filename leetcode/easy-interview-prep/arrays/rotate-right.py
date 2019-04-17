@@ -5,7 +5,6 @@ def rotate(nums, k):
     :type k: int
     :rtype: void Do not return anything, modify nums in-place instead.
     """
-    # if we have k == 0, we don't need to do anything
     if k == 0:
         return
     
@@ -21,4 +20,4 @@ def rotate(nums, k):
 #     steps = k % len(nums)
 #     nums[:] = nums[-steps:] + nums[:-steps]
 
-rotate([1,2,3,4,5,6,7,8,9], 10)
+print(rotate([1,2,3,4,5,6,7,8,9], 10))

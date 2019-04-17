@@ -16,15 +16,29 @@ def count_uniques(nums):
             totalUniqueCount += 1
             newArr.append(nums[index])
             continue
-        if element in nums[index-1::-1]:
+        if element in newArr:
             continue
         else:
             totalUniqueCount += 1
             newArr.append(nums[index])
             continue
 
-    return newArr
+    return newArr, totalUniqueCount
 
+print(count_uniques([0,0,1,1,1,2,2,3,3,4]))
 
-print(count_uniques([1,0,1,2,3,4,5,5]))
+# ----------- PSEUDO CODE -------------  #
 
+# if the arr is empty
+    # return 0
+# for every element in the given arr of numbers
+    # if its the first element
+        # append it to the new arr
+        # increment unique count
+        # continue
+    # if element is in our new arr
+        # continue
+    # else
+        # increment unique count
+        # append it to the new arr
+        # continue
