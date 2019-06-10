@@ -2,7 +2,38 @@
 
 import React, { Component } from 'react';
 
+const MyInput = (props) => {
+    return (
+        <input
+            ref={props.inputRef} 
+            type='text'>
+        </input>
+    );
+}
+
+const FuncCustomComp = () => {
+    let inputRef = null;
+
+    const   onClick = () => {
+        inputRef.focus();
+    }
+    return (
+        <div>
+            <span>My Input</span>
+            <MyInput
+                inputRef={(input) => {inputRef = input}} 
+            />
+            <input
+                onClick={onClick}
+                value='Submit'
+                type='submit'>
+            </input>
+        </div>
+    )
+}
+
 class AddItem extends Component {
+    
     onKeyUp = (target, e) => {
         if (e.keyCode === 13) {
             switch(target) {
@@ -20,10 +51,15 @@ class AddItem extends Component {
             }
         }
     }
+
     render() {
         return (
             <div className='add_section'>
                 
+                <div>
+                    <FuncCustomComp/>
+                </div>
+
                 <label for='item'></label>
                 <input
                     type='text'
