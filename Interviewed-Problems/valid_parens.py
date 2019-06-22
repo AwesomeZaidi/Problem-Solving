@@ -61,10 +61,6 @@ def find_longest_sequence(s):
     
     return longest_seq_len
 
-        #Pseudocode
-            # we go through the string for as long as our is_valid func returns true
-            # once it returns false, lets check if its size is larger than our max, override the max.
-
 
 def is_valid_parentheses(s):
     if not s or s[0] == ")" or s[-1] == '(':
