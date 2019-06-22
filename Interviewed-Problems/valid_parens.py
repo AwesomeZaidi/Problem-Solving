@@ -37,12 +37,12 @@ def find_longest_sequence(s):
 
     # loop over string
     for char in s:
-        # if queue is currently valid, increment cur_seq_len
+        # if queue is currently valid, append and increment cur_seq_len
         if char == parenthese_type[0]:
             queue.append(char)
-            # print('appended curr queue:', queue)
             cur_seq_len += 1
         elif char == parenthese_type[1]:
+            # if queue is currently valid, pop and increment cur_seq_len
             try:
                 queue.pop()
                 cur_seq_len += 1
@@ -55,6 +55,7 @@ def find_longest_sequence(s):
             # overwrite longest_seq_len val with cur_seq_len
             longest_seq_len = cur_seq_len
     
+    # return the longest_seq_len
     return longest_seq_len
 
 
