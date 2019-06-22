@@ -26,13 +26,10 @@ from collections import deque
 import unittest
 
 def find_longest_sequence(s):
+    
     # Edge cases
     if not s or s[0] == ")" or s[-1] == '(':
         return False
-    
-    #Pseudocode
-        # we go through the string for as long as our is_valid func returns true
-        # once it returns false, lets check if its size is larger than our max, override the max.
 
     # create a tuple to hold the two parenthesis
     parenthese_type = ("(", ")")
@@ -41,39 +38,33 @@ def find_longest_sequence(s):
     longest_seq_len  = 0
     # create a queue
     queue = deque([])
+
     # loop over string
     for char in s:
-        # print('iteration')
-        # print('char:', char)
-        # print('curr queue:', queue)
         # if queue is currently valid, increment cur_seq_len
         if char == parenthese_type[0]:
             queue.append(char)
             # print('appended curr queue:', queue)
             cur_seq_len += 1
         elif char == parenthese_type[1]:
-            # print('queue:', queue)
-            # print('cur_seq_len:', cur_seq_len)
             try:
-                # print('popped queue')
                 queue.pop()
-                # print('queue after popleft:', queue)
-                # print('popped queue:', queue)
                 cur_seq_len += 1
             except: # if queue is invalid
-                # print('Uh oh. queue is invalid')
-                # if cur_seq_len is greater than longest_seq_len
-                # if cur_seq_len > longest_seq_len:
-                #     # overwrite longest_seq_len value with cur_seq_len
-                #     longest_seq_len = cur_seq_len
-                    # finally clear cur_seq_len and queue
+                # clear cur_seq_len
                 cur_seq_len = 0
-                queue = ([])
-        # at every iteration, just check if the cur_seq_len is > longest_seq_len, then overwrite.
+
+        # at each iteration, if cur_seq_len is greater than longest_seq_len.
         if cur_seq_len > longest_seq_len:
+            # overwrite longest_seq_len val with cur_seq_len
             longest_seq_len = cur_seq_len
     
     return longest_seq_len
+
+        #Pseudocode
+            # we go through the string for as long as our is_valid func returns true
+            # once it returns false, lets check if its size is larger than our max, override the max.
+
 
 def is_valid_parentheses(s):
     if not s or s[0] == ")" or s[-1] == '(':
@@ -111,12 +102,7 @@ class ValidParens(unittest.TestCase):
 
     def test_find_longest_sequence(self):
         input_1 = find_longest_sequence('())(())')
-        print('input:   ())(())')
-        # print('input_1:', input_1)
         assert input_1 == 4
 
 if __name__ == "__main__":
-    # q = deque([])
-    # q.popleft()
-    # print('q:', q)
     unittest.main()
