@@ -103,6 +103,8 @@ class ValidParens(unittest.TestCase):
     def test_find_longest_sequence(self):
         input_1 = find_longest_sequence('())(())')
         assert input_1 == 4
+        input_2 = find_longest_sequence('())(()))(())()()')
+        assert input_2 == 8
 
 if __name__ == "__main__":
     unittest.main()
