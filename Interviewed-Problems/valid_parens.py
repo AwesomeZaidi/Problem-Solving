@@ -26,10 +26,6 @@ from collections import deque
 import unittest
 
 def find_longest_sequence(s):
-    
-    # Edge cases
-    if not s or s[0] == ")" or s[-1] == '(':
-        return False
 
     # create a tuple to hold the two parenthesis
     parenthese_type = ("(", ")")
