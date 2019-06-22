@@ -12,6 +12,9 @@ test_input = [
     {'name': 'Moe', 'manager': 'Larry'},
 ]
 
+# check if parent pointer traversal
+# otherwise invert the damn data
+
 """ 
 Trey
     Paul
@@ -34,14 +37,14 @@ def find_top_level_managers(managers_list):
     return top_level_managers.keys()
     
     
-def find_employees(manager):
-#     go through our initial dictionary
-    for person in test_input:
-        if person.manager == manager:
-            top_level_managers.manager += person
-#         if the employees manager is in our top_level_managers
+# def find_employees(manager):
+# #     go through our initial dictionary
+#     for person in test_input:
+#         if person.manager == manager:
+#             top_level_managers.manager += person
+# #         if the employees manager is in our top_level_managers
       
-    return top_level_managers
+#     return top_level_managers
 
     
 print(find_top_level_managers(test_input)) 
