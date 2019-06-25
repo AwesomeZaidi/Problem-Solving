@@ -98,7 +98,7 @@ console.log(f()); // 0
 function f(a,b,c) {
     if (a && b && c){
         return (a + b)  * c
-    } else if (a  && b) {
+    } else if (a && b) {
         return function(val) {
             return (a + b) * val
         }
