@@ -1,0 +1,1 @@
+print([el[0] for el in sorted(dict(zip(ws, [ws.count(el) for el in ws])).items(), key=lambda X: X[1])[-3:]])
